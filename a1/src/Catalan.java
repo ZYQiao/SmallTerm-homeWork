@@ -31,8 +31,7 @@ public class Catalan {
 			from.removeLast();
 			go(from,to,s);
 		}
-
-
+//System.out.println();
 	}
 
 	public static void main(String[] args) {
