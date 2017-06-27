@@ -15,8 +15,12 @@ public class Catalan {
 			}
 		}else{
 			if(!s.empty()){
-				Deque f = from, t = to;
-				Stack st = s;
+				Deque f = new Deque();
+				f = from;
+				Deque t = new Deque();
+				t = from;
+				Stack st = new Stack();
+				st = s;
 				t.addLast(st.pop());
 				go(f,t,st);
 				if(f.size() == 0)

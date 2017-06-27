@@ -19,15 +19,15 @@ public class Fibo {
 	}
 
 	public int fibo2(int n) { // 使用循环来实现
-		int a1 = 0, a2 = 1, tmp = 0;
+		int tmp1 = 0, tmp2 = 0, ans = 1;
 		if(n < 2)
-			return a2;
+			return ans;
 		for(int i = 1; i < n; i++){
-			tmp = a1;
-			a1 = a2;
-			a2 = a1 + tmp;
+			tmp2 = tmp1;
+			tmp1 = ans;
+			ans = tmp1 + tmp2;
 		}
-		return a2;
+		return ans;
 	}
 }
 

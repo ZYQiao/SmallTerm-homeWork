@@ -13,7 +13,7 @@ public class Array {
 		}
 		return -1;
 	}
-
+	
 	// 该程序运行结果应该是输出1和-1
 	public static void main(String[] args) {
 		int[] array = { 1, 3, -1, 9, 7, 3 };
