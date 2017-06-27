@@ -14,16 +14,18 @@ public class Catalan {
 				go(from,to,s);
 			}
 		}else{
-			if(s.empty()){
-				s.push(from.getLast());
-				from.removeLast();
-				go(from,to,s);
-			}else{
-				Deque f = from,t = to;
+			if(!s.empty()){
+				Deque f = from, t = to;
 				Stack st = s;
-				
+				t.addLast(st.pop());
+				go(f,t,st);
+				if(f.size() == 0)
+					if(s.empty())
+						answers++;
 			}
-			
+			s.push(from.getLast());
+			from.removeLast();
+			go(from,to,s);
 		}
 
 
