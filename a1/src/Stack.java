@@ -17,12 +17,20 @@ public class Stack {
 		if(list.getSize() == 0)
 			return -1;
 		list.size--;
-		Node top = list.head;
-		for(int i = 0; i < list.size; i++){
-			top = top.next;
+		Node tmp = list.head;
+		if(list.size == 0){
+			list.head = list.tail = null;
+			int data = tmp.data;
+			tmp = null;
+			return data;
 		}
-		list.tail = top; 
-		return top.data;
+		for(int i = 0; i < list.size - 1; i++){
+			tmp = tmp.next;
+		}
+		int data = tmp.next.data;
+		tmp.next = null;
+		list.tail = tmp; 
+		return data;
 	}
 	
 	//数据进栈操作

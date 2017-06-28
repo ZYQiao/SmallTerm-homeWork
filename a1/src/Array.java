@@ -19,7 +19,14 @@ public class Array {
 		int[] array = { 1, 3, -1, 9, 7, 3 };
 		System.out.println(indexOf(3, array));
 		System.out.println(indexOf(5, array));
-
+		double s = 1,a = 1;
+		for(double i = 1; i <= 7;i++){
+			a *= i;
+		}
+		for(double i = 8; i <= 14; i++){
+			s *= i;
+		}
+		System.out.println(s/a);
 	}
 
 }

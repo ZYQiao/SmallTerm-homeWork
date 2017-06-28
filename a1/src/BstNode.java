@@ -1,5 +1,5 @@
 
-//¶ş²æÅÅĞòÊ÷½Úµã
+//äºŒå‰æ’åºæ ‘èŠ‚ç‚¹
 public class BstNode {
 	
 	public int data;

@@ -1,7 +1,7 @@
 
 public class BinarySortTree {
 
-	// ¹¹½¨¶ş²æÅÅĞòÊ÷
+	// æ„å»ºäºŒå‰æ’åºæ ‘
 	public static BstNode create(int[] a) {
 		if (a == null || a.length == 0) {
 			return null;
@@ -34,7 +34,7 @@ public class BinarySortTree {
 		}
 	}
 
-	// ÏÈĞò±éÀú
+	// å…ˆåºéå†
 	public static void preOrderTraverse(BstNode root) {
 		if (root != null) {
 			System.out.print(root.data + " ");
@@ -43,7 +43,7 @@ public class BinarySortTree {
 		}
 	}
 
-	// ÖĞĞò±éÀú
+	// ä¸­åºéå†
 	public static void inOrderTraverse(BstNode root) {
 		if (root != null) {
 			inOrderTraverse(root.left);
@@ -52,7 +52,7 @@ public class BinarySortTree {
 		}
 	}
 
-	// ºóĞò±éÀú
+	// ååºéå†
 	public static void postOrderTraverse(BstNode root) {
 		if (root != null) {
 			postOrderTraverse(root.left);
@@ -61,13 +61,19 @@ public class BinarySortTree {
 		}
 	}
 
-	// ÇëÊµÏÖÏÂÃæµÄº¯Êı£¬ÅĞ¶Ï¶ş²æÅÅĞòÊ÷ÊÇ·ñ°üº¬Êı¾İdata, Èç¹û²»°üº¬£¬·µ»Øfalse£¬·ñÔò£¬·µ»Øtrue
-	// rootÖ¸Ïò¶ş²æÅÅĞòÊ÷µÄ¸ù½Úµã
+	// è¯·å®ç°ä¸‹é¢çš„å‡½æ•°ï¼Œåˆ¤æ–­äºŒå‰æ’åºæ ‘æ˜¯å¦åŒ…å«æ•°æ®data, å¦‚æœä¸åŒ…å«ï¼Œè¿”å›falseï¼Œå¦åˆ™ï¼Œè¿”å›true
+	// rootæŒ‡å‘äºŒå‰æ’åºæ ‘çš„æ ¹èŠ‚ç‚¹
 	public static boolean contains(BstNode root, int data) {
-	
-		
-		
-
+		if(root == null)
+			return false;
+		if(root.data == data)
+			return true;
+		else{
+			if(!contains(root.left,data))
+				return contains(root.right,data);
+			else
+				return contains(root.left, data);
+		}
 	}
 
 	public static void main(String[] args) {
