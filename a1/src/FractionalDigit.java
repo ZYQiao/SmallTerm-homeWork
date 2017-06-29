@@ -10,8 +10,6 @@ public class FractionalDigit {
 			d = (d*10)%q;
 		}
 		
-		double b = 13.0/17.0;
-		System.out.println(b);
 		System.out.println(a);
 
 	}

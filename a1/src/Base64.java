@@ -1,3 +1,4 @@
+import java.nio.file.StandardCopyOption;
 import java.util.Vector;
 
 public class Base64 {
@@ -121,7 +122,6 @@ public class Base64 {
 	}
 
 	public static byte[] decode(String s) {
-		StringBuffer sb = new StringBuffer();
 		int lenth = 0;
 		Vector<Byte> list = new Vector<Byte>();
 		for (int j = 0; j < s.length(); j++) {
@@ -135,34 +135,29 @@ public class Base64 {
 			list.add(backSecond((byte) getPos(s.charAt(i + 1)), (byte) getPos(s.charAt(i + 2))));
 			list.add(backThird((byte) getPos(s.charAt(i + 2)), (byte) getPos(s.charAt(i + 3))));
 		}
-		int k = 0;
-		byte b_0[] = new byte[list.size()];
-		for (byte bt : list) {
-			b_0[k++] = bt;
-		}
-		sb.append(new String(b_0));
 		if (more_len == 2) {
 			byte b_1[] = new byte[1];
 			b_1[0] = backLastOne((byte) getPos(s.charAt(lenth - 2)), (byte) getPos(s.charAt(lenth - 1)), 2, 6);
-			sb.append(new String(b_1));
-
+			list.add(b_1[0]);
 		}
 		if (more_len == 3) {
 			byte b_2[] = new byte[2];
 			b_2[0] = backFirst((byte) getPos(s.charAt(lenth - 3)), (byte) getPos(s.charAt(lenth - 2)));
 			b_2[1] = backSecond((byte) getPos(s.charAt(lenth - 2)), (byte) getPos(s.charAt(lenth - 1)));
-
-			sb.append(new String(b_2));
+			list.add(b_2[0]);
+			list.add(b_2[1]);
 		}
-		byte bytes[] = new byte[sb.length()];
-		for (int i = 0; i < sb.length(); i++) {
-			bytes[i] = (byte) sb.charAt(i);
+		int k = 0;
+		byte bytes[] = new byte[list.size()];
+		for (byte bt : list) {
+			bytes[k++] = bt;
 		}
+		
 		return bytes;
 	}
 
 	public static void main(String[] args) {
-		byte[] a = { 1, 2, 3, -7, -9, 110 };
+		byte[] a = {1,2,3, -7,-9,110};
 		String s = encode(a);
 		System.out.println(s);
 		byte[] b = decode(s);
@@ -170,7 +165,6 @@ public class Base64 {
 			System.out.print(b[i] + " ");
 		}
 		System.out.println();
-
 	}
 
 }

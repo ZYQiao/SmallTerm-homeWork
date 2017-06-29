@@ -22,7 +22,6 @@ public class Deque {
 			int p = size() - 1;
 			list.remove(p);
 		}
-		
 	}
 	
 	public void removeFirst() {
