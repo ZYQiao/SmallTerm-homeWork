@@ -158,8 +158,9 @@ public class Base64 {
 
 	public static void main(String[] args) {
 		byte[] a = {1,2,3, -7,-9,110};
-		String s = encode(a);
-		System.out.println(s);
+//		String s = encode(a);
+		String s = "AQID+fdu";
+//		System.out.println(s);
 		byte[] b = decode(s);
 		for (int i = 0; i < b.length; i++) {
 			System.out.print(b[i] + " ");
