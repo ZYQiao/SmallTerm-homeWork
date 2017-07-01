@@ -9,17 +9,17 @@ public class Catalan {
 		        answers++;
 		        return;
 		    }
-		    if(from.size()!=0/*&&s.size()<5*/){//入栈
-		        int v = from.getFirst();   
+		    if(from.size()!=0&&s.size()<5){//入栈
+		        int v = from.getFirst(); //设置断点  
 		        s.push(v);   
 		        from.removeFirst();;
 		        go(from,to,s);
 		        s.pop();
 		        from.addFirst(v);;//恢复断点
 		    }
-		    if(s.size()!=0/*&&s.size()<5*/) //出栈
+		    if(s.size()!=0&&s.size()<5) //出栈
 		    {
-		        int v = s.pop();
+		        int v = s.pop();//设置断点
 		        to.addFirst(v);;
 		        go(from,to,s);
 		        to.removeFirst();;
