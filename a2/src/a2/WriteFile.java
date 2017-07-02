@@ -37,6 +37,6 @@ public class WriteFile {
 	}
 
 	public static void main(String argv[]) throws IOException {
-		WriteTxtFile("/Users/yuqiao/workspace/a2/src/a2", "Dictionary.txt");
+		WriteTxtFile("/Users/yuqiao/workspace/a2/src/a2", "b.txt");
 	}
 }
