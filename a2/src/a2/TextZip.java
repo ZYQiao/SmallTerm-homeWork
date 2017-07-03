@@ -322,7 +322,7 @@ public class TextZip {
 
 
 		else if (args[0].equals("-c")) {
-
+//			-c /Users/yuqiao/workspace/a2/src/a2/huffman.txt /Users/yuqiao/workspace/a2/src/a2/huffman.freq /Users/yuqiao/workspace/a2/src/a2/huffman.txz
 			FileReader fr = new FileReader(args[1]);	//读取txt文件
 			PrintWriter pw = new PrintWriter(new FileWriter(args[2])); //创建freq文件
 			ArrayList trees = countFrequencies(fr, pw);
@@ -359,6 +359,7 @@ public class TextZip {
 		}
 
 		else if (args[0].equals("-d")) {
+//			-d /Users/yuqiao/workspace/a2/src/a2/huffman.txz /Users/yuqiao/workspace/a2/src/a2/huffman.freq /Users/yuqiao/workspace/a2/src/a2/huffman.txt
 			ArrayList a = readFrequencies(args[2]);		//读取freq文件
 			TreeNode tn = buildTree(a);	
 			BitReader br = new BitReader(args[1]);		//读取txz文件
