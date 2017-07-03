@@ -45,6 +45,6 @@ public class PrimeTest {
 	}
 
 	public static void main(String argv[]) {
-		System.out.println(Prime_Test());
+		System.out.println("The answer : " + Prime_Test());
 	}
 }
