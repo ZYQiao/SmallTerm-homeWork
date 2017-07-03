@@ -11,10 +11,7 @@ public class PrimeTest {
 			if (TestPrim(i))
 				prime.add(String.valueOf(i));
 		for (String num : prime) {
-			if (Integer.valueOf(num) < 10) {
-				System.out.println(num);
-				ans++;
-			} else {
+			if (Integer.valueOf(num) >= 10) {
 				for (int i = 1; i < num.length(); i++) {
 					String a1, a2 = new String();
 					a1 = num.substring(0, i);
@@ -24,6 +21,7 @@ public class PrimeTest {
 					if (TestPrim(Integer.valueOf(a1)) && TestPrim(Integer.valueOf(a2))) {
 						System.out.println(num);
 						ans++;
+						break;
 					}
 				}
 			}
