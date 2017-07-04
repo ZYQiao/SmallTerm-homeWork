@@ -75,24 +75,19 @@ public class TextZip {
 	*         code a String used to build the code for each character as
 	*              the tree is traversed recursively
 	*/
-	public static void traverse(TreeNode t, String code , boolean verbose) {
+	
+	public static void traverse(TreeNode t, String code) {
 
+		// IMPLEMENT THIS METHOD
 		if (t.isLeaf()) {	//遍历完该路径
 			char c = ((CharFreq) t.getItem()).getChar();//读取该bit码对应的字符
-			if (verbose) { System.out.println(c + " : " + code); }
 			codes.put(new Character(c), code);//添加入转换表
 		}
 		else
 		{
-			traverse(t.getLeft(),code+"0", verbose);//遍历左子树的所有路径
-			traverse(t.getRight(),code+"1", verbose);//遍历左子树的所有路径
+			traverse(t.getLeft(),code + "0");//遍历左子树的所有路径
+			traverse(t.getRight(),code + "1");//遍历左子树的所有路径
 		}
-
-	}
-	public static void traverse(TreeNode t, String code) {
-
-		// IMPLEMENT THIS METHOD
-		traverse(t, code, true);
 		
 	}
 	
@@ -336,7 +331,7 @@ public class TextZip {
 			
 			// IMPLEMENT NEXT 
 			// Finish the compress function here
-			traverse(n, "", false);		//构建转换表
+			traverse(n, "");		//构建转换表
 
 			fr = new FileReader(args[1]);	//读取txt文件
 			BitWriter bw = new BitWriter(args[3]);		//写入txz文件

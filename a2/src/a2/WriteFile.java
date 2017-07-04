@@ -7,7 +7,7 @@ import java.io.FileWriter;
 public class WriteFile {
 	private static FileWriter fileWriter;
 
-	public static void WriteTxtFile(String filepath, String name) throws IOException {
+	public void WriteTxtFile(String filepath, String name) throws IOException {
 		File file = new File(filepath, name);
 		if (!file.exists()) {
 			file.getParentFile().mkdirs();
@@ -22,7 +22,7 @@ public class WriteFile {
 		fileWriter.close();
 	}
 
-	public static boolean TestPrime(int n) {
+	public boolean TestPrime(int n) {
 		if (n == 1)
 			return false;
 		else if (n == 2)
@@ -36,7 +36,7 @@ public class WriteFile {
 		return true;
 	}
 
-	public static void main(String argv[]) throws IOException {
+	public void main(String argv[]) throws IOException {
 		WriteTxtFile("/Users/yuqiao/workspace/a2/src/a2","b.txt");
 	}
 }

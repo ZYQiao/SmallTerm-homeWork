@@ -6,7 +6,7 @@ import java.util.Vector;
 public class Repeatation {
 	private static Vector<MyFile> fl = new Vector<MyFile>();
 
-	public static boolean isRepate(MyFile file) {
+	public boolean isRepate(MyFile file) {
 		String fName = new String();
 		int pos = file.getName().lastIndexOf('.');
 		String fileName = (file.getName().substring(0, pos));
@@ -20,7 +20,7 @@ public class Repeatation {
 		return false;
 	}
 
-	public static void AllFiles(File dir) throws Exception {
+	public void AllFiles(File dir) throws Exception {
 		File[] fs = dir.listFiles();
 		for (int i = 0; i < fs.length; i++) {
 			if (!fs[i].isDirectory())
@@ -31,7 +31,7 @@ public class Repeatation {
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
+	public void main(String[] args) throws Exception {
 		File root = new File(args[0]);
 		boolean rep = false;
 		AllFiles(root);

@@ -3,33 +3,53 @@ package a2;
 import java.util.Vector;
 
 public class PrimeTest {
-
-	public static int Prime_Test() {
-		Vector<String> prime = new Vector<String>();
-		int ans = 0;
-		for (int i = 0; i < 10000; i++)
-			if (TestPrim(i))
-				prime.add(String.valueOf(i));
-		for (String num : prime) {
-			if (Integer.valueOf(num) >= 10) {
-				for (int i = 1; i < num.length(); i++) {
-					String a1, a2 = new String();
-					a1 = num.substring(0, i);
-					a2 = num.substring(i);
-					if (a2.charAt(0) == '0')
-						continue;
-					if (TestPrim(Integer.valueOf(a1)) && TestPrim(Integer.valueOf(a2))) {
-						System.out.println(num);
-						ans++;
-						break;
+	public static boolean isSpPrime(String n) {
+		if (Integer.valueOf(n) < 10)
+			return false;
+		String a, b, c, d = new String();
+		for (int i = 1; i < n.length(); ++i) {
+			a = n.substring(0, i);
+			b = n.substring(i);
+			if (isPrime(Integer.valueOf(a)) && isPrime(Integer.valueOf(b))) {
+				if (b.charAt(0) == '0')
+					continue;
+				return true;
+			}
+			if (i == 1) {
+				for (int j = 1; j < b.length(); j++) {
+					c = b.substring(0, j);
+					d = b.substring(j);
+					if (isPrime(Integer.valueOf(a)) && isPrime(Integer.valueOf(c)) && isPrime(Integer.valueOf(d))) {
+						if (c.charAt(0) == '0' || d.charAt(0) == '0')
+							continue;
+						return true;
 					}
 				}
 			}
+			if (i == 2) {
+				for (int j = 1; j < b.length(); j++) {
+					c = b.substring(0, j);
+					d = b.substring(j);
+					if (isPrime(Integer.valueOf(a)) && isPrime(Integer.valueOf(c)) && isPrime(Integer.valueOf(d))) {
+						return true;
+					}
+				}
+			}
+			if (i == 3) {
+				c = a.substring(1, 2);
+				d = a.substring(2, 3);
+				a = a.substring(0, 1);
+				if (isPrime(Integer.valueOf(a)) && isPrime(Integer.valueOf(b)) && isPrime(Integer.valueOf(c))
+						&& isPrime(Integer.valueOf(d))) {
+					return true;
+				}
+			}
 		}
-		return ans;
+
+		return false;
 	}
 
-	public static boolean TestPrim(int n) {
+	public static boolean isPrime(int n) {
 		if (n == 1)
 			return false;
 		if (n == 2)
@@ -43,6 +63,17 @@ public class PrimeTest {
 	}
 
 	public static void main(String argv[]) {
-		System.out.println("The answer : " + Prime_Test());
+		Vector<String> prime = new Vector<String>();
+		int ans = 0;
+		for (int i = 0; i < 10000; i++)
+			if (isPrime(i))
+				prime.add(String.valueOf(i));
+		for (String num : prime) {
+			if (isSpPrime(num)) {
+				System.out.println(num);
+				ans++;
+			}
+		}
+		System.out.println("The answer : " + ans);
 	}
 }
